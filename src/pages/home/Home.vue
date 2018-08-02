@@ -9,6 +9,8 @@
 <script>
 import HomeHeader from './components/Header' // 引入了局部组件
 import HomeSwiper from './components/Swiper' // 引入Swiper.vue组件
+import HomeIcons from './components/Icons'
+
 export default {
   name: 'Home',
   components: {
