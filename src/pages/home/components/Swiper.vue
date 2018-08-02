@@ -21,11 +21,11 @@ export default {
             swiperList: [
                 {
                     id: '0001',
-                    imgUrl: 'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/dujia_shuqi_banner_20180710.jpg'
+                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1806/3c/c72a1ccd4d7b2202.jpg_750x200_b88bbab4.jpg'
                 },
                 {
                     id: '0002',
-                    imgUrl: 'https://source.qunarzz.com/site/images/wap/home/recommend/iphoneplus/sc_sqdc_20180727.jpg'
+                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/e8/14b75b1c81fbe702.jpg_750x200_e6d4f1f1.jpg'
                 }
             ]
         }
@@ -49,7 +49,7 @@ scoped表示选择器只在该组件里有用
         overflow: hidden
         width: 100%
         height: 0
-        padding-bottom: 24.5% 
+        padding-bottom: 26.5% 
         background: #eeeeee
         
         .swiper-img
