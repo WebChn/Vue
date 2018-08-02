@@ -3,14 +3,22 @@
         <div class="title">周末去哪儿</div>
         <ul>
             <li class="item" border-bottom 
+<<<<<<< HEAD
             v-for="item of recommendList"
+=======
+            v-for="item of list"
+>>>>>>> index-ajax
             :key="item.id"
             >
                 <div class="item-img-wrapper">
                     <img class="item-img" :src="item.imgUrl" alt="">
                 </div>
                 <div class="item-info">
+<<<<<<< HEAD
                     <p class="item-title">{{item.titile}}</p>
+=======
+                    <p class="item-title">{{item.title}}</p>
+>>>>>>> index-ajax
                     <p class="item-desc">{{item.desc}}</p>
                 </div>
                 
@@ -22,6 +30,7 @@
 <script>
 export default {
     name: 'HomeWeekend',
+<<<<<<< HEAD
     data () {
         return {
             recommendList: [
@@ -43,6 +52,10 @@ export default {
             }
         ]
         }
+=======
+    props: {
+        list: Array
+>>>>>>> index-ajax
     }
 }
 </script>
@@ -50,14 +63,21 @@ export default {
 <style lang="stylus" scoped>
     @import '~styles/mixins.skyl'
     .title
+<<<<<<< HEAD
         margin-top .2rem
+=======
+>>>>>>> index-ajax
         line-height .8rem
         background #eee
         text-indent .2rem
     .item-img-wrapper
         overflow hidden
         height 0
+<<<<<<< HEAD
         padding-bottom 33.9%
+=======
+        padding-bottom 37.09%
+>>>>>>> index-ajax
         .item-img
             width 100%
     .item-info
