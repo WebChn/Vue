@@ -1,7 +1,7 @@
 <template>
     <div class="wrapper">
-        <swiper :options="swiperOption">
-            <swiper-slide v-for="item of swiperList" :key="item.id">
+        <swiper :options="swiperOption" v-if="showSwiper">
+            <swiper-slide v-for="item of list" :key="item.id">
                 <img class="swiper-img" :src="item.imgUrl">
             </swiper-slide>
             <div class="swiper-pagination"  slot="pagination"></div>  <!--专门用来显示分页-->
@@ -12,22 +12,20 @@
 <script>
 export default {
     name: 'HomeSwiper',
+    props: {
+        list: Array
+    },
     data () {            //es6语法  es5语法是 data： function() {}, 非根组件data定义得以函数形式
         return {
             swiperOption: {
                 pagination: '.swiper-pagination', //使轮播图上出现切换界面的提示点
                 loop: true//使轮播支持循环轮播 
-            },
-            swiperList: [
-                {
-                    id: '0001',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1806/3c/c72a1ccd4d7b2202.jpg_750x200_b88bbab4.jpg'
-                },
-                {
-                    id: '0002',
-                    imgUrl: 'http://img1.qunarzz.com/piao/fusion/1805/e8/14b75b1c81fbe702.jpg_750x200_e6d4f1f1.jpg'
-                }
-            ]
+            }
+        }
+    },
+    computed: {    
+        showSwiper () {    // 使得轮播图一开始默认第一张 
+            return this.list.length   
         }
     }
 }
