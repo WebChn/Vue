@@ -13,13 +13,14 @@ export default {
 <style lang="stylus" scoped>
     @import '~styles/varibles.styl'
     .search
+        box-sizing border-box
         height .72rem
         padding 0.1rem
         background $bgColor
         .search-input
             box-sizing border-box
             width 100%
-            height .62rem
+            height .55rem
             padding .1rem
             text-align center
             border-radius .06rem

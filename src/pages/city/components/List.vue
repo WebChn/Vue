@@ -18,7 +18,12 @@
                 </div>
             </div>
 
-            <div class="area" v-for="(item, key) of cities" :key="key">   <!--cities是对象  第二项指key指 -->
+            <div 
+                class="area" 
+                v-for="(item, key) of cities" 
+                :key="key"   
+                :ref="key"
+            >    <!--cities是对象  第二项指key指key值 -->
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
                     <div 
@@ -40,10 +45,19 @@ export default {
     name: "CityList",
     props: {
         hot: Array,
-        cities: Object
+        cities: Object,
+        letter: String
     },
     mounted () {    // 生命周期函数  页面挂载完后执行
         this.scroll = new Bscroll(this.$refs.wrapper)
+    },
+    watch: {   // 监听器       实现了点击右侧字母  城市列会跳到对应的城市
+        letter() {   //letter有变化 就执行这里的代码
+            if (this.letter) {
+                const element =  this.$refs[this.letter][0]  //通过￥refs可以获取对应（this.letter）字母对应的area区域
+                this.scroll.scrollToElement(element)                                       // [0] 循环得到的element是一个数组  scrollToElement这个函数要接收的得是一个元素
+            }
+        }
     }
 }
 </script>
@@ -61,7 +75,7 @@ export default {
     .list
         position absolute 
         overflow hidden
-        top 1.7rem
+        top 1.58rem
         left 0
         right 0
         bottom 0
