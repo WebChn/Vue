@@ -12,81 +12,21 @@
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div>
-                    <div class="button-wrapper">
-                        <div class="button">北京</div>
-                    </div><div class="button-wrapper">
-                        <div class="button">北京</div>
+                    <div class="button-wrapper" v-for="item in hot" :key="item.id">
+                        <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-            <div class="area">
-                <div class="title border-topbottom">A</div>
+
+            <div class="area" v-for="(item, key) of cities" :key="key">   <!--cities是对象  第二项指key指 -->
+                <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                </div>
-                <div class="title border-topbottom">B</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                </div>
-                <div class="title border-topbottom">C</div>
-                <div class="item-list">
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
-                    </div>
-                    <div class="item border-bottom">
-                        阿克苏地区
+                    <div 
+                        class="item border-bottom"
+                        v-for="innerItem of item"
+                        :key="innerItem.id"
+                    >
+                        {{innerItem.name}}
                     </div>
                 </div>
             </div>
@@ -98,6 +38,10 @@
 import Bscroll from 'better-scroll'
 export default {
     name: "CityList",
+    props: {
+        hot: Array,
+        cities: Object
+    },
     mounted () {    // 生命周期函数  页面挂载完后执行
         this.scroll = new Bscroll(this.$refs.wrapper)
     }
