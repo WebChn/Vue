@@ -67,7 +67,7 @@ export default {
             padding-bottom: 25%
             .icon-img
                 position: absolute
-                top: 0
+                top: .1rem
                 right: 0
                 left: 0
                 bottom: .44rem
@@ -76,7 +76,7 @@ export default {
                 .icon-img-content
                     display block
                     margin 0 auto
-                    height 100%
+                    height 90%
             .icon-desc
                 position: absolute
                 right: 0

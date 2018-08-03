@@ -1,10 +1,5 @@
 <template>
     <div> 
-        <home-header></home-header>
-        <home-swiper></home-swiper>
-        <home-icons></home-icons>
-        <home-recommend></home-recommend>
-        <home-weekend></home-weekend>
         <home-header :city="city"></home-header>
         <home-swiper :list="swiperList"></home-swiper>
         <home-icons :list="iconList"></home-icons>
@@ -19,7 +14,6 @@ import HomeSwiper from './components/Swiper' // 引入Swiper.vue组件
 import HomeIcons from './components/Icons'
 import HomeRecommend from './components/Recommend'
 import HomeWeekend from './components/Weekend' 
-import HomeWeekend from './components/Weekend'
 import axios from 'axios'
 export default {
   name: 'Home', 

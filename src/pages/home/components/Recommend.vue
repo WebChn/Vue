@@ -3,20 +3,12 @@
         <div class="title">热销推荐</div>
         <ul>
             <li class="item" border-bottom 
-<<<<<<< HEAD
-            v-for="item of recommendList"
-=======
             v-for="item of list"
->>>>>>> index-ajax
             :key="item.id"
             >
                 <img class="item-img" :src="item.imgUrl" alt="">
                 <div class="item-info">
-<<<<<<< HEAD
-                    <p class="item-title">{{item.titile}}</p>
-=======
                     <p class="item-title">{{item.title}}</p>
->>>>>>> index-ajax
                     <p class="item-desc">{{item.desc}}</p>
                     <button class="item-button">查看详情</button>
                 </div>
@@ -29,32 +21,8 @@
 <script>
 export default {
     name: 'HomeRecommend',
-<<<<<<< HEAD
-    data () {
-        return {
-            recommendList: [
-            {
-                id: '0001',
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_200x200_c118d7da.jpg',
-                titile: '广州长隆旅游度假区',
-                desc: '长隆旅游度假区，国家级AAAAA景区，占地面积1万亩，是一家集旅游景点',
-            }, {
-                id: '0002',
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_200x200_c118d7da.jpg',
-                titile: '广州长隆旅游度假区',
-                desc: '长隆旅游度假区，国家级AAAAA景区，占地面积1万亩，是一家集旅游景点、酒店餐饮、娱乐休闲于一体的大型企业集团，坐落于羊城广州。',
-            }, {
-                id: '0003',
-                imgUrl: 'http://img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_200x200_c118d7da.jpg',
-                titile: '广州长隆旅游度假区',
-                desc: '长隆旅游度假区，国家级AAAAA景区，占地面积1万亩，是一家集旅游景点',
-            }
-        ]
-        }
-=======
     props: {
         list: Array
->>>>>>> index-ajax
     }
 }
 </script>
