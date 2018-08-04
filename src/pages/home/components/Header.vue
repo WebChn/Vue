@@ -9,7 +9,7 @@
            </div>
        <router-link to='/city'>   <!--该标签专门用来跳转 -->
             <div class="header-right">
-                {{this.city}}
+                {{this.city}}  <!--vuex的数据  this.$store.state.city通过mapState改写成this.city -->
                 <span class="iconfont arrow-icon">&#xe64a;</span>
             </div>
         </router-link>
@@ -17,12 +17,13 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'HomeHeader',
-  props: {
-      city: String
-  }
-}
+  computed: {                   // 把city这个公共数据映射到该组件里名字叫city的计算属性
+      ...mapState(['city']),     // 这一部分实现用this.city代替了this.$store.state.city
+  }                             //mapState指把vuex中的数据映射到该组件的computed的计算属性里
+}                               
 </script>
 <!--
 /*lang="stylus" 表示用stylus来写样式 scoped表示这里的样式只应用于这一个组件 不影响其他组件*/
@@ -60,7 +61,8 @@ export default {
             color: #ccc
             
         .header-right
-            width: 1.24rem
+            min-width: 1.04rem
+            padding 0 .1rem
             float: right 
             text-align: center
             color: #fff

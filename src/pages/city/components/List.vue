@@ -5,14 +5,20 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">北京</div>
+                        <div class="button">{{this.currentCity}}</div><!--用currentCity代替$store.state.city -->
                     </div>
                 </div>
             </div>
             <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
-                    <div class="button-wrapper" v-for="item in hot" :key="item.id">
+                    <!--下面的@click="handleCityClick(item.name)" 将item.name传了进去  -->
+                    <div 
+                        class="button-wrapper" 
+                        v-for="item in hot" 
+                        :key="item.id"
+                        @click="handleCityClick(item.name)" 
+                    >
                         <div class="button">{{item.name}}</div>
                     </div>
                 </div>
@@ -30,6 +36,7 @@
                         class="item border-bottom"
                         v-for="innerItem of item"
                         :key="innerItem.id"
+                        @click="handleCityClick(innerItem.name)"
                     >
                         {{innerItem.name}}
                     </div>
@@ -41,6 +48,7 @@
 
 <script>
 import Bscroll from 'better-scroll'
+import {mapState, mapMutations} from 'vuex'
 export default {
     name: "CityList",
     props: {
@@ -48,8 +56,18 @@ export default {
         cities: Object,
         letter: String
     },
-    mounted () {    // 生命周期函数  页面挂载完后执行
-        this.scroll = new Bscroll(this.$refs.wrapper)
+    computed: {
+        ...mapState({
+            currentCity: 'city'//将vuex中的公用数据city映射到该组件名字叫currentCity的计算属性里
+        })
+    },
+    methods: {
+        handleCityClick (city) {  //这里的city就是前面传入的list.name
+            //this.$store.commit('changeCity', city)
+            this.changeCity(city) //上面一行通过mapMutations简写
+             this.$router.push('/')
+        },
+        ...mapMutations(['changeCity']) //我们有一个mutations叫changeCity 我们把它映射到该组件一个叫changeCity的方法里
     },
     watch: {   // 监听器       实现了点击右侧字母  城市列会跳到对应的城市
         letter() {   //letter有变化 就执行这里的代码
@@ -58,6 +76,9 @@ export default {
                 this.scroll.scrollToElement(element)                                       // [0] 循环得到的element是一个数组  scrollToElement这个函数要接收的得是一个元素
             }
         }
+    },
+    mounted () {    // 生命周期函数  页面挂载完后执行  一般放最后
+        this.scroll = new Bscroll(this.$refs.wrapper)
     }
 }
 </script>

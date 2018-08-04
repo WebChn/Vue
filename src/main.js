@@ -5,6 +5,7 @@ import App from './App'
 import router from './router'
 import fastClick from 'fastclick'
 import VueAwesomeSwiper from 'vue-awesome-swiper' /* 导入VueAwesomeSwiper这个插件 */
+import store from './store'
 import 'styles/reset.css'
 import 'styles/border.css'/* 一像素边框解决方案 */
 import 'styles/iconfont.css'
@@ -17,6 +18,7 @@ Vue.use(VueAwesomeSwiper) /* 输入这一行后 就可以用VueAwesomeSwiper 这
 new Vue({
   el: '#app',
   router, // ES6语法 router： router  键和值内容相同可以简写为router
+  store, // 通过vuex 每个组件都可以提取到这里的数据
   components: { App }, // ES6语法 {App： App} 两个相同 可以简写成{App}
   template: '<App/>'
 })
