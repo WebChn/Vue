@@ -47,7 +47,7 @@ scoped表示选择器只在该组件里有用
         overflow: hidden
         width: 100%
         height: 0
-        padding-bottom: 26.5% 
+        padding-bottom: 31.25% 
         background: #eeeeee
         
         .swiper-img
