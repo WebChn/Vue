@@ -1,17 +1,19 @@
 <template>
     <div>
         <div class="banner" @click="handleBannerClick">
-            <img class="banner-img" src="//img1.qunarzz.com/sight/p0/1603/3b/3bd311262ee06d8c90.img.jpg_600x330_cd2e3bf7.jpg" alt="">
+            <img class="banner-img" :src="bannerImg">
             <div class="banner-info">
-                <div class="banner-title">广州长隆旅游度假区(AAAAA景区)</div>
+                <div class="banner-title">
+                    {{this.sightName}}
+                </div>
                 <div class="banner-number">
                     <span class="iconfont banner-icon">&#xe626;</span>
-                    39
+                    {{this.bannerImgs.length}}
                 </div>
             </div>
         </div>
         <common-gallary 
-            :imgs="imgs"
+            :imgs="bannerImgs"
             v-show="showGallary"
             @close="handleGallaryClose" 
         ></common-gallary>  <!--close事件是src/common/gallary/Gallary.vue发送出来的-->
@@ -22,11 +24,14 @@
 import CommonGallary from 'common/gallary/Gallary'
 export default {
     name: 'DetailBanner',
+    props: {
+        sightName: String,
+        bannerImg: String,
+        bannerImgs: Array
+    },
     data () {
         return {
-            showGallary: false,
-            imgs: ["http://img1.qunarzz.com/sight/p0/1707/33/33d47d55bbab5c84a3.img.jpg_r_800x800_a9489697.jpg", //如果没有收到数据 就显示这个
-                       "http://img1.qunarzz.com/sight/p0/1707/29/29e09ca18a802c5ca3.img.jpg_r_800x800_84729340.jpg"]
+            showGallary: false
         }
     },
     methods: {

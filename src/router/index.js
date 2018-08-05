@@ -7,19 +7,20 @@ import Detail from '@/pages/detail/Detail'
 Vue.use(Router)
 
 export default new Router({
-  routes: [
-    {
-      path: '/', // 当用户访问根路径时
-      name: 'Home',
-      component: Home
-    }, {
-      path: '/city', // 当用户访问/city路径时
-      name: 'City',
-      component: City
-    }, {
-      path: '/detail/:id', // 动态路由 ：id前路径必须是反斜杠  后面带的参数会放到id的变量里
-      name: 'Detail',
-      component: Detail
-    }
-  ]
+  routes: [{
+    path: '/', // 当用户访问根路径时
+    name: 'Home',
+    component: Home
+  }, {
+    path: '/city', // 当用户访问/city路径时
+    name: 'City',
+    component: City
+  }, {
+    path: '/detail/:id', // 动态路由 ：id前路径必须是反斜杠  后面带的参数会放到id的变量里
+    name: 'Detail',
+    component: Detail
+  }],
+  scrollBehavior (to, from, savedPosition) { // 对于所有路由导航，简单地让页面滚动到顶
+    return { x: 0, y: 0 }
+  }
 })
