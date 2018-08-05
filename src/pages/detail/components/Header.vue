@@ -33,7 +33,7 @@ export default {
             }
         }
     },
-    methods: {
+    methods: { 
         handleScroll () {
             const top = document.documentElement.scrollTop
             if (top > 60 ) {
@@ -47,9 +47,12 @@ export default {
            
         }
     },
-    activated () { //因为用了keepalive 所以页面只要一被展示就会执行 现在已经忘记在哪里用了keeoalive了
+    activated () { //因为用了keepalive 所以每次页面只一被展示就会执行 现在已经忘记在哪里用了keeoalive了
         window.addEventListener('scroll', this.handleScroll)
-    }
+    },
+    deactivated () {  //生命周期函数 当页面即将被隐藏或者即将被替换成其他页面时 执行
+        window.removeEventListener('scroll', this.handleScroll) //因为上面的对象是会影响到全局组件 也就是不只是在该组件里执行 所以用这个来解决这个问题
+    } 
 }
 </script>
 
