@@ -13,26 +13,25 @@
                 <div class="title border-topbottom">热门城市</div>
                 <div class="button-list">
                     <!--下面的@click="handleCityClick(item.name)" 将item.name传了进去  -->
-                    <div 
-                        class="button-wrapper" 
-                        v-for="item in hot" 
+                    <div
+                        class="button-wrapper"
+                        v-for="item in hot"
                         :key="item.id"
-                        @click="handleCityClick(item.name)" 
+                        @click="handleCityClick(item.name)"
                     >
                         <div class="button">{{item.name}}</div>
                     </div>
                 </div>
             </div>
-
-            <div 
-                class="area" 
-                v-for="(item, key) of cities" 
-                :key="key"   
+            <div
+                class="area"
+                v-for="(item, key) of cities"
+                :key="key"
                 :ref="key"
             >    <!--cities是对象  第二项指key指key值 -->
                 <div class="title border-topbottom">{{key}}</div>
                 <div class="item-list">
-                    <div 
+                    <div
                         class="item border-bottom"
                         v-for="innerItem of item"
                         :key="innerItem.id"
@@ -50,36 +49,36 @@
 import Bscroll from 'better-scroll'
 import {mapState, mapMutations} from 'vuex'
 export default {
-    name: "CityList",
-    props: {
-        hot: Array,
-        cities: Object,
-        letter: String
+  name: 'CityList',
+  props: {
+    hot: Array,
+    cities: Object,
+    letter: String
+  },
+  computed: {
+    ...mapState({
+      currentCity: 'city'// 将vuex中的公用数据city映射到该组件名字叫currentCity的计算属性里
+    })
+  },
+  methods: {
+    handleCityClick (city) { // 这里的city就是前面传入的list.name
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city) // 上面一行通过mapMutations简写
+      this.$router.push('/')
     },
-    computed: {
-        ...mapState({
-            currentCity: 'city'//将vuex中的公用数据city映射到该组件名字叫currentCity的计算属性里
-        })
-    },
-    methods: {
-        handleCityClick (city) {  //这里的city就是前面传入的list.name
-            //this.$store.commit('changeCity', city)
-            this.changeCity(city) //上面一行通过mapMutations简写
-             this.$router.push('/')
-        },
-        ...mapMutations(['changeCity']) //我们有一个mutations叫changeCity 我们把它映射到该组件一个叫changeCity的方法里
-    },
-    watch: {   // 监听器       实现了点击右侧字母  城市列会跳到对应的城市
-        letter() {   //letter有变化 就执行这里的代码
-            if (this.letter) {
-                const element =  this.$refs[this.letter][0]  //通过￥refs可以获取对应（this.letter）字母对应的area区域
-                this.scroll.scrollToElement(element)                                       // [0] 循环得到的element是一个数组  scrollToElement这个函数要接收的得是一个元素
-            }
-        }
-    },
-    mounted () {    // 生命周期函数  页面挂载完后执行  一般放最后
-        this.scroll = new Bscroll(this.$refs.wrapper)
+    ...mapMutations(['changeCity']) // 我们有一个mutations叫changeCity 我们把它映射到该组件一个叫changeCity的方法里
+  },
+  watch: { // 监听器       实现了点击右侧字母  城市列会跳到对应的城市
+    letter () { // letter有变化 就执行这里的代码
+      if (this.letter) {
+        const element = this.$refs[this.letter][0] // 通过$refs可以获取对应（this.letter）字母对应的area区域
+        this.scroll.scrollToElement(element) // [0] 循环得到的element是一个数组  scrollToElement这个函数要接收的得是一个元素
+      }
     }
+  },
+  mounted () { // 生命周期函数  页面挂载完后执行  一般放最后
+    this.scroll = new Bscroll(this.$refs.wrapper)
+  }
 }
 </script>
 
@@ -94,7 +93,7 @@ export default {
         &:after
             border-color #cccccc
     .list
-        position absolute 
+        position absolute
         overflow hidden
         top 1.58rem
         left 0
@@ -110,7 +109,7 @@ export default {
             overflow hidden
             padding .1rem .6rem .1rem .1rem
             .button-wrapper
-                float left 
+                float left
                 width 33.33%
                 .button
                     margin .1rem
@@ -125,6 +124,4 @@ export default {
             .border-bottom
                 box-sizing border-box
                 border-bottom 1px solid #cccccc
-        
-
 </style>

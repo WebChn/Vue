@@ -2,7 +2,7 @@
     <div>
         <div class="title">周末去哪儿</div>
         <ul>
-            <li class="item" border-bottom 
+            <li class="item border-bottom"
             v-for="item of list"
             :key="item.id"
             >
@@ -13,7 +13,6 @@
                     <p class="item-title">{{item.title}}</p>
                     <p class="item-desc">{{item.desc}}</p>
                 </div>
-                
             </li>
         </ul>
     </div>
@@ -21,10 +20,10 @@
 
 <script>
 export default {
-    name: 'HomeWeekend',
-    props: {
-        list: Array
-    }
+  name: 'HomeWeekend',
+  props: {
+    list: Array
+  }
 }
 </script>
 
@@ -50,5 +49,4 @@ export default {
             line-height .4rem
             color #ccc
             ellipsis()
-            
 </style>

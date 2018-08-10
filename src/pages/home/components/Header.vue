@@ -1,5 +1,5 @@
 <template>
-    <div class="header">  
+    <div class="header">
        <div class="header-left">
            <div class="iconfont back-icon">&#xe600;</div>
        </div>
@@ -20,10 +20,10 @@
 import {mapState} from 'vuex'
 export default {
   name: 'HomeHeader',
-  computed: {                   // 把city这个公共数据映射到该组件里名字叫city的计算属性
-      ...mapState(['city']),     // 这一部分实现用this.city代替了this.$store.state.city
-  }                             //mapState指把vuex中的数据映射到该组件的computed的计算属性里
-}                               
+  computed: {// 把city这个公共数据映射到该组件里名字叫city的计算属性
+    ...mapState(['city'])// 这一部分实现用this.city代替了this.$store.state.city
+  }// mapState指把vuex中的数据映射到该组件的computed的计算属性里
+}
 </script>
 <!--
 /*lang="stylus" 表示用stylus来写样式 scoped表示这里的样式只应用于这一个组件 不影响其他组件*/
@@ -31,12 +31,12 @@ export default {
 使用了flex布局  flex：1  会自动撑开
 @import '../../../assets/styles/varibles.styl'   引入了样式文件 ../上一级 ./同级
 @import '~@/assets/styles/varibles.styl'  ~@代表src目录
-在webpack.base.conf.js文件中设置了      
+在webpack.base.conf.js文件中设置了
       '@': resolve('src'),
       'styles': resolve('src/assets/styles'),
  -->
 <style lang="stylus" scoped>
-    @import '~styles/varibles.styl' 
+    @import '~styles/varibles.styl'
     .header
         display: flex
         line-height: $headerHeight
@@ -44,7 +44,7 @@ export default {
         color: #fff
         .header-left
             width: .64rem
-            float: left 
+            float: left
             .back-icon
                 text-align: center
                 font-size: .4rem
@@ -56,14 +56,13 @@ export default {
             margin-top: .12rem
             margin-left: .2rem
             padding-left: .2rem
-            background: #fff 
+            background: #fff
             border-radius: .1rem
             color: #ccc
-            
         .header-right
             min-width: 1.04rem
             padding 0 .1rem
-            float: right 
+            float: right
             text-align: center
             color: #fff
             .arrow-icon

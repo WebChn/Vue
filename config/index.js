@@ -5,20 +5,25 @@
 const path = require('path')
 
 module.exports = {
-  dev: {
+  dev: { // 开发环境下
 
     // Paths
     assetsSubDirectory: 'static',
-    assetsPublicPath: '/',
-    proxyTable: {
+    assetsPublicPath: '/', 
+    proxyTable: { //开发环境下，访问/api这个路径  会把请求把到'http://localhost:8080上  这里可以实现前后端联调
       '/api': {
-        target: 'http://localhost:8080',
+        target: 'http://localhost:8080',  //这里是本地模拟的前端接头
         pathRewrite: {
           '^/api': '/static/mock'
         }
       }
     },
+/*
+'/api': {
+        target: 'http://localhost:80',  //这里是本地的后台端口 http协议默认是80端口 可以省略
 
+      }
+*/
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST
     port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined

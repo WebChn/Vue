@@ -6,7 +6,7 @@
   </div>
 </template>
 
-<script>   //这是组件的逻辑关系
+<script>// 这是组件的逻辑关系
 export default {
   name: 'App'
 }

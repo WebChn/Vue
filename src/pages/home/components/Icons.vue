@@ -2,9 +2,9 @@
     <div class="icons">
         <swiper :options="swiperOption">
             <swiper-slide v-for="(page, index) of pages" :key="index">  <!--实现根据小图标数量来轮播的效果 -->
-                <div 
-                    class="icon" 
-                    v-for="item of page" 
+                <div
+                    class="icon"
+                    v-for="item of page"
                     :key="item.id"
                 >
                     <div class="icon-img">
@@ -14,36 +14,35 @@
                 </div>
             </swiper-slide>
         </swiper>
-        
     </div>
 </template>
 
 <script>
 export default {
-    name: 'HomeIcons',
-    props: {
-        list: Array
-    },
-    data () {
-        return {
-             swiperOption: {
-                autoolay: false    //轮播图不会自动左右滚动
-            }
-        }
-    },
-    computed: {    //该算法 将一个有9个元素的一维数组转化为二维数组
-        pages () {
-            const pages = []
-            this.list.forEach((item, index) => {
-                const page = Math.floor(index / 8)
-                if (!pages[page]) {
-                    pages[page] = []
-                }
-                pages[page].push(item)
-            })
-            return pages
-        }
+  name: 'HomeIcons',
+  props: {
+    list: Array
+  },
+  data () {
+    return {
+      swiperOption: {
+        autoolay: false// 轮播图不会自动左右滚动
+      }
     }
+  },
+  computed: {// 该算法 将一个有9个元素的一维数组转化为二维数组
+    pages () {
+      const pages = []
+      this.list.forEach((item, index) => {
+        const page = Math.floor(index / 8)
+        if (!pages[page]) {
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
+  }
 }
 </script>
 <!--

@@ -21,6 +21,6 @@ export default new Router({
     component: Detail
   }],
   scrollBehavior (to, from, savedPosition) { // 对于所有路由导航，简单地让页面滚动到顶
-    return { x: 0, y: 0 }
+    return { x: 0, y: 0 }// 每次做路由切换时  都让新进入的页面 xy轴初始位置为0
   }
 })

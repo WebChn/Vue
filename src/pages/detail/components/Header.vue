@@ -1,15 +1,15 @@
 <template>
     <div>
-        <router-link 
-            tag='div' 
-            to='/' 
+        <router-link
+            tag='div'
+            to='/'
             class="header-abs"
-            v-show="showAbs"    
+            v-show="showAbs"
         >
             <div class="iconfont header-abs-back">&#xe600;</div>
         </router-link>
-        <div 
-            class="header-fixed" 
+        <div
+            class="header-fixed"
             v-show="!showAbs"
             :style="opacityStyle"
         >
@@ -20,49 +20,46 @@
         </div>
     </div>
 </template>
-
 <script>
-import CommonGallary from 'common/gallary/Gallary'
 export default {
-    name: 'DetailHeader',
-    data () {
-        return {
-            showAbs: true,
-            opacityStyle: {
-                opcity: 0
-            }
-        }
-    },
-    methods: { 
-        handleScroll () {
-            const top = document.documentElement.scrollTop
-            if (top > 60 ) {
-                let opacity = top / 140
-                opacity = opacity > 1 ? 1 : opacity
-                this.opacityStyle = {opacity}  // 键和值相同
-                this.showAbs = false 
-            } else {
-                this.showAbs = true
-            }
-           
-        }
-    },
-    activated () { //因为用了keepalive 所以每次页面只一被展示就会执行 现在已经忘记在哪里用了keeoalive了
-        window.addEventListener('scroll', this.handleScroll)
-    },
-    deactivated () {  //生命周期函数 当页面即将被隐藏或者即将被替换成其他页面时 执行
-        window.removeEventListener('scroll', this.handleScroll) //因为上面的对象是会影响到全局组件 也就是不只是在该组件里执行 所以用这个来解决这个问题
-    } 
+  name: 'DetailHeader',
+  data () {
+    return {
+      showAbs: true,
+      opacityStyle: {
+        opcity: 0
+      }
+    }
+  },
+  methods: {
+    handleScroll () {
+      const top = document.documentElement.scrollTop
+      if (top > 60) {
+        let opacity = top / 140
+        opacity = opacity > 1 ? 1 : opacity
+        this.opacityStyle = {opacity} // 键和值相同
+        this.showAbs = false
+      } else {
+        this.showAbs = true
+      }
+    }
+  },
+  activated () { // 因为用了keepalive 所以每次页面只一被展示就会执行 现在已经忘记在哪里用了keeoalive了
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  deactivated () { // 生命周期函数 当页面即将被隐藏或者即将被替换成其他页面时 执行
+    window.removeEventListener('scroll', this.handleScroll)// 因为上面的对象是会影响到全局组件 也就是不只是在该组件里执行 所以用这个来解决这个问题
+  }
 }
 </script>
 
 <style lang="stylus" scoped >
     @import '~styles/varibles.styl'
     .header-abs
-        position absolute 
+        position absolute
         left .2rem
         top .2rem
-        width .8rem 
+        width .8rem
         height .8rem
         line-height .8rem
         border-radius .4rem

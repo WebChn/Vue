@@ -13,10 +13,10 @@
             </div>
         </div>
         <fade-animation> <!--组件标签内部的内容作为插槽的形式 会出现在slot标签里-->
-            <common-gallary 
+            <common-gallary
                 :imgs="bannerImgs"
                 v-show="showGallary"
-                @close="handleGallaryClose" 
+                @close="handleGallaryClose"
             ></common-gallary>  <!--close事件是src/common/gallary/Gallary.vue发送出来的-->
         </fade-animation>
     </div>
@@ -24,31 +24,31 @@
 
 <script>
 import CommonGallary from 'common/gallary/Gallary'
-import FadeAnimation from  'common/fade/FadeAnimation'
+import FadeAnimation from 'common/fade/FadeAnimation'
 export default {
-    name: 'DetailBanner',
-    props: {
-        sightName: String,
-        bannerImg: String,
-        bannerImgs: Array
-    },
-    data () {
-        return {
-            showGallary: false
-        }
-    },
-    methods: {
-        handleBannerClick () {
-            this.showGallary = true
-        },
-        handleGallaryClose () {
-            this.showGallary = false
-        }
-    },
-    components: {
-        CommonGallary,
-        FadeAnimation
+  name: 'DetailBanner',
+  props: {
+    sightName: String,
+    bannerImg: String,
+    bannerImgs: Array
+  },
+  data () {
+    return {
+      showGallary: false
     }
+  },
+  methods: {
+    handleBannerClick () {
+      this.showGallary = true
+    },
+    handleGallaryClose () {
+      this.showGallary = false
+    }
+  },
+  components: {
+    CommonGallary,
+    FadeAnimation
+  }
 }
 </script>
 
@@ -77,7 +77,7 @@ export default {
                 height .32rem
                 line-height .32rem
                 margin-top .4rem
-                padding 0 .4rem  
+                padding 0 .4rem
                 border-radius .2rem
                 background rgba(0, 0, 0, .8)
                 font-size .24rem

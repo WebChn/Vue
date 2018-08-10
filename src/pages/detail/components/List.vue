@@ -1,8 +1,8 @@
 <template>
     <div>
-        <div 
-            class="item" 
-            v-for="(item, index) of list" 
+        <div
+            class="item"
+            v-for="(item, index) of list"
             :key="index"
         >
             <div class="item-title border-bottom">
@@ -18,10 +18,10 @@
 
 <script>
 export default {
-    name: 'DetailList',  // 组件名字的一个作用之一 方便使用递归组件
-    props: {
-        list: Array
-    }
+  name: 'DetailList', // 组件名字的一个作用之一 方便使用递归组件
+  props: {
+    list: Array
+  }
 }
 </script>
 
@@ -43,5 +43,4 @@ export default {
         background-size .4rem 3rem;
     .item-children
         padding 0 .2rem
-        
 </style>

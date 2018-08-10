@@ -2,9 +2,9 @@
     <div>
         <div class="title">热销推荐</div>
         <ul>        <!--router-link 默认把标签变为a标签 tag可以指定变为什么标签 -->
-            <router-link  
+            <router-link
                 tag="li"
-                class="item" border-bottom 
+                class="item border-bottom"
                 v-for="item of list"
                 :key="item.id"
                 :to="'/detail/' + item.id"
@@ -22,10 +22,10 @@
 
 <script>
 export default {
-    name: 'HomeRecommend',
-    props: {
-        list: Array
-    }
+  name: 'HomeRecommend',
+  props: {
+    list: Array
+  }
 }
 </script>
 
@@ -63,5 +63,4 @@ export default {
                 padding .2rem
                 border-radius .06rem
                 color #fff
-            
 </style>
