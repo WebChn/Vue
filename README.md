@@ -54,7 +54,7 @@ WebChn 44e81c38a banner finish
 推送到了 WebChn/Travel 的 detail-banner 分支
 1 月前
 WebChn 44e81c38a banner finish
-2018-08-04
+<strong>2018-08-04</strong>
 WebChnWebChn
 推送了新的 分支 detail-banner 到 WebChn/Travel
 1 月前
@@ -72,7 +72,7 @@ WebChn b5cdce806 use vuex
 推送到了 WebChn/Travel 的 city-vuex 分支
 1 月前
 WebChn b5cdce806 use vuex
-2018-08-03
+<strong>2018-08-03</strong>
 WebChnWebChn
 推送了新的 分支 city-vuex 到 WebChn/Travel
 1 月前
@@ -127,7 +127,7 @@ WebChn 3cc43b7f1 city router
 推送到了 WebChn/Travel 的 master 分支
 1 月前
 WebChn c916ced57 little change
-2018-08-02
+<strong>2018-08-02</strong>
 WebChnWebChn
 推送到了 WebChn/Travel 的 master 分支
 1 月前
@@ -175,7 +175,7 @@ WebChn 614c85cb9 add icon
 推送到了 WebChn/Travel 的 index-icons 分支
 1 月前
 WebChn fa1f795b0 add icons
-2018-08-01
+<strong>2018-08-01</strong>
 WebChnWebChn
 推送了新的 分支 index-icons 到 WebChn/Travel
 1 月前
@@ -197,7 +197,7 @@ WebChn 7ea4948af project init
 1 月前
 WebChn 2ae43c52b project initialized
 7月
-2018-07-31
+<strong>2018-07-31</strong>
 WebChnWebChn
 推送了新的 分支 master 到 WebChn/Travel
 1 月前
