@@ -1,3 +1,5 @@
+用Vue2.0仿的去哪儿网App    代码中有我编写过程的注释 比较详细 有Vue基础的人 应该可以靠注释 模仿写出来
+
 # travel
 
 > A Vue.js project
